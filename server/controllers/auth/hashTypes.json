@@ -1,0 +1,5 @@
+{
+    "VERIFY_ACCOUNT": "verify_account",
+    "FORGOT_PASSWORD": "forgot_password",
+    "CHANGE_PASSWORD": "change_password"
+}

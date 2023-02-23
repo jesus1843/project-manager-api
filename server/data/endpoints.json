@@ -1,0 +1,44 @@
+{
+    "message": "List of End-points with Prefixes",
+    "data": [
+        {
+            "prefix": "/auth",
+            "description": "End-points for Authentication",
+            "endpoints": [
+                {
+                    "endpoint": "/login",
+                    "name": "Login",
+                    "description": "End-point to authenticate",
+                    "method": "POST",
+                    "body": ["email", "password1", "password2"]
+                },
+                {
+                    "endpoint": "/register",
+                    "name": "Register",
+                    "description": "End-point to register a new user",
+                    "method": "POST",
+                    "body": ["email", "password1", "password2"]
+                }
+            ]
+        },
+        {
+            "prefix": "/projects",
+            "description": "End-points for Projects",
+            "endpoints": [
+                {
+                    "endpoint": "/",
+                    "name": "Project List",
+                    "description": "End-point to return project list",
+                    "method": "GET"
+                },
+                {
+                    "endpoint": "/",
+                    "name": "Create a Project",
+                    "description": "End-point to register a new project",
+                    "method": "POST",
+                    "body": ["title", "description"]
+                }
+            ]
+        }
+    ]
+}
