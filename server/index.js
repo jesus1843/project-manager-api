@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+const path = require('path');
+
 const express = require('express');
 const cors = require('cors')
 const mongoose = require('mongoose');
@@ -10,6 +12,7 @@ const server = express();
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
+server.use(express.static(path.resolve(__dirname, '../public')));
 server.use(cors());
 
 server.use('/api', require('./routes'));
