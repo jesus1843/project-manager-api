@@ -1,27 +1,22 @@
 require('dotenv').config();
 
-const path = require('path');
-
 const express = require('express');
 const cors = require('cors')
 const mongoose = require('mongoose');
-
-const s3 = require('./helpers/s3');
 
 const server = express();
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
-server.use(express.static(path.resolve(__dirname, '../public')));
 server.use(cors());
 
 server.use('/api', require('./routes'));
 
-// server.use((req, res, next) => {
-//     res.status(404).json({
-//         error: 'Prefix must be "/api"'
-//     });
-// });
+server.use((req, res, next) => {
+    res.status(404).json({
+        error: 'Prefix must be "/api"'
+    });
+});
 
 const {
     MONGO_CONN_PROD,
