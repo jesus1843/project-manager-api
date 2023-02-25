@@ -34,6 +34,14 @@ mongoose.connect(MONGO_URI)
                 : 'Production MongoDB Database running...'
         );
 
+        fetch('http://localhost:5000/api/profile/avatar?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNmMjQxOTRiMTBlYTM4OTI3M2UwM2Y2IiwiZW1haWwiOiJhZG1pbkBlbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIzLTAyLTE5VDE1OjM1OjAwLjQxMloiLCJ1cGRhdGVkQXQiOiIyMDIzLTAyLTE5VDE2OjAzOjU0Ljc5NloiLCJoYXNoZXMiOnt9fSwiaWF0IjoxNjc3MzM3MzQ5LCJleHAiOjE2Nzc5NDIxNDl9.b92XsS6hzOvQyg6K5mo2n4lWv2rT8LBjzpkmz7RRr1c')
+            .then(async(imgUrlData) => {
+                const buffer = await imgUrlData.arrayBuffer();
+                const base64Data = Buffer.from(buffer).toString('base64');
+                // const image = Buffer.from(base64Data, 'base64');
+                console.log(base64Data);
+            })
+
         server.listen(
             +process.env.PORT,
             () => console.log(`Server running by port: ${ process.env.PORT }`)
