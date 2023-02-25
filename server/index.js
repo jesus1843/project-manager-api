@@ -17,11 +17,11 @@ server.use(cors());
 
 server.use('/api', require('./routes'));
 
-server.use((req, res, next) => {
-    res.status(404).json({
-        error: 'Prefix must be "/api"'
-    });
-});
+// server.use((req, res, next) => {
+//     res.status(404).json({
+//         error: 'Prefix must be "/api"'
+//     });
+// });
 
 const {
     MONGO_CONN_PROD,
